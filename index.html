@@ -195,6 +195,1222 @@
       border-radius: 50%;
       background: linear-gradient(135deg, var(--depth-600), var(--accent-secondary));
       display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 0 3px rgba(57,128,250,0.15);
+      overflow: hidden;
+    }
+    .drawer-logo img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+    .drawer-channel-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--text-primary);
+    }
+    .drawer-handle {
+      font-size: 0.85rem;
+      color: var(--accent-primary);
+    }
+
+    .drawer-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+      padding: 20px;
+      border-bottom: 1px solid rgba(57,128,250,0.06);
+    }
+    .stat-box {
+      background: rgba(57,128,250,0.04);
+      border: 1px solid rgba(57,128,250,0.08);
+      border-radius: 14px;
+      padding: 12px 8px;
+      text-align: center;
+    }
+    .stat-box .stat-num {
+      font-weight: 700; font-size: 1.4rem; color: var(--accent-primary); display: block;
+    }
+    .stat-box .stat-label {
+      font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary);
+    }
+
+    .drawer-nav {
+      padding: 14px 16px; flex: 1;
+    }
+    .drawer-nav-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 16px; border-radius: 12px;
+      font-weight: 500; color: var(--text-secondary);
+      cursor: pointer; transition: 0.2s;
+      width: 100%; background: none; border: none; text-align: left;
+    }
+    .drawer-nav-item i { width: 22px; color: var(--accent-primary); }
+    .drawer-nav-item:hover { background: rgba(57,128,250,0.08); color: white; }
+    .drawer-nav-item.active-nav { background: rgba(57,128,250,0.12); color: white; border-left: 3px solid var(--accent-primary); }
+
+    .drawer-footer-info {
+      padding: 20px; border-top: 1px solid rgba(57,128,250,0.06);
+      text-align: center;
+    }
+    .drawer-tg-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
+      color: white; font-weight: 600; font-size: 0.8rem;
+      border-radius: 40px; text-decoration: none;
+      box-shadow: 0 6px 18px rgba(57,128,250,0.2);
+    }
+    .drawer-tg-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(57,128,250,0.3); }
+
+    /* hero */
+    .hero {
+      padding: 40px 24px 20px;
+      text-align: center;
+    }
+    .hero-scorpion-icon {
+      font-size: 3.8rem; display: block; margin-bottom: 8px;
+      filter: drop-shadow(0 0 16px var(--accent-primary));
+      animation: subtleDrift 4s infinite;
+    }
+    @keyframes subtleDrift { 0%{ transform: translateY(0);} 50%{ transform: translateY(-6px);} }
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: clamp(2rem, 6vw, 3rem);
+      letter-spacing: 2px;
+      color: white;
+      text-shadow: 0 2px 15px var(--glow-highlight);
+    }
+    .hero-sub {
+      font-size: 0.9rem; letter-spacing: 3px; color: var(--accent-primary); text-transform: uppercase;
+    }
+    .hero-desc-card {
+      max-width: 700px; margin: 24px auto 0;
+      padding: 18px 26px; background: var(--glass-bg); backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle); border-radius: 28px;
+      color: var(--text-secondary); font-size: 0.95rem;
+    }
+
+    /* search */
+    .search-wrap { display: flex; justify-content: center; padding: 10px 20px 25px; }
+    .search-container {
+      position: relative; width: 100%; max-width: 560px;
+    }
+    .search-container i {
+      position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+      color: var(--accent-primary); font-size: 1rem;
+    }
+    .search-container input {
+      width: 100%; padding: 16px 22px 16px 48px;
+      font-size: 0.95rem; background: var(--card-bg);
+      border: 1.5px solid rgba(57,128,250,0.15); border-radius: 18px;
+      color: var(--text-primary); outline: none;
+    }
+    .search-container input:focus { border-color: var(--accent-primary); box-shadow: 0 0 0 3px rgba(57,128,250,0.1); }
+
+    /* tabs */
+    .section-tabs {
+      display: flex; justify-content: center; gap: 8px; padding: 0 20px 24px; flex-wrap: wrap;
+    }
+    .tab-btn {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.7rem;
+      letter-spacing: 1.5px; padding: 10px 24px;
+      border: 1px solid rgba(57,128,250,0.15); border-radius: 14px;
+      background: transparent; color: var(--text-secondary); cursor: pointer;
+    }
+    .tab-btn:hover { border-color: var(--accent-primary); color: white; }
+    .tab-btn.active-tab {
+      background: rgba(57,128,250,0.1); border-color: var(--accent-primary); color: white;
+    }
+
+    /* mod grid */
+    .mod-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+      padding: 0 20px 40px; max-width: 1000px; margin: 0 auto;
+    }
+    @media (max-width:640px){ .mod-grid{ grid-template-columns:1fr; } }
+    .mod-card {
+      background: var(--card-bg); backdrop-filter: blur(8px);
+      border: 1px solid rgba(57,128,250,0.08); border-radius: 26px;
+      padding: 24px 22px 20px; transition: 0.25s ease;
+      box-shadow: var(--shadow-heavy);
+    }
+    .mod-card:hover { transform: translateY(-4px); border-color: rgba(57,128,250,0.2); box-shadow: 0 25px 50px -12px black; }
+    .mod-card-icon { font-size: 2rem; margin-bottom: 12px; filter: drop-shadow(0 0 6px var(--accent-primary)); }
+    .mod-card h3 { font-weight: 700; font-size: 1rem; color: white; margin-bottom: 6px; }
+    .mod-desc { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px; }
+    .mod-card-footer { display: flex; align-items: center; justify-content: space-between; }
+    .mod-size-tag {
+      font-size: 0.65rem; font-weight: 600; padding: 4px 10px; background: rgba(57,128,250,0.06);
+      border: 1px solid rgba(57,128,250,0.1); border-radius: 8px; color: var(--accent-primary);
+    }
+    .mod-dl-btn {
+      display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px;
+      font-weight: 600; font-size: 0.7rem; text-decoration: none; color: white;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
+      border-radius: 14px; transition: 0.2s; border: none; cursor: pointer;
+    }
+    .mod-dl-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(57,128,250,0.3); }
+
+    /* status checker, info, admin unified */
+    .checker-section, .info-section, .admin-panel { max-width: 1000px; margin: 0 auto 50px; padding: 0 20px; display: none; }
+    .visible { display: block; }
+    .checker-card, .admin-login-card, .admin-add-form { background: var(--card-bg); border: 1px solid rgba(57,128,250,0.08); border-radius: 32px; padding: 28px 26px; backdrop-filter: blur(10px); }
+
+    .checker-title, .admin-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; color: white; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+
+    .check-item {
+      display: flex; align-items: center; gap: 16px; padding: 16px; background: rgba(57,128,250,0.02);
+      border: 1px solid rgba(57,128,250,0.05); border-radius: 20px; margin-bottom: 8px;
+    }
+    .check-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+    .check-dot.online { background: var(--success); box-shadow: 0 0 12px var(--success); }
+    .check-dot.offline { background: var(--danger); box-shadow: 0 0 12px var(--danger); }
+    .check-dot.warning { background: var(--warning); box-shadow: 0 0 12px var(--warning); }
+    .check-status-text { font-weight: 600; font-size: 0.6rem; padding: 4px 12px; border-radius: 30px; }
+    .status-live { background: rgba(16,185,129,0.1); color: var(--success); }
+    .status-down { background: rgba(239,68,68,0.1); color: var(--danger); }
+    .status-warn { background: rgba(245,158,11,0.1); color: var(--warning); }
+
+    .info-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+    .info-card { background: var(--card-bg); border: 1px solid rgba(57,128,250,0.08); border-radius: 28px; padding: 24px; }
+    .info-card-title { font-weight: 700; color: var(--accent-primary); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+
+    /* admin panel refined */
+    .admin-input-group { margin-bottom: 18px; }
+    .admin-input-group input, .admin-form-row input, .admin-form-full input, .admin-form-full select {
+      width: 100%; padding: 14px 18px; background: rgba(14,18,27,0.7); border: 1.5px solid rgba(57,128,250,0.15);
+      border-radius: 16px; color: white; font-size: 0.95rem; outline: none;
+    }
+    .admin-input-group input:focus { border-color: var(--accent-primary); }
+    .admin-btn-login, .admin-submit-btn {
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary)); border: none;
+      padding: 14px 28px; border-radius: 16px; font-weight: 600; color: white; cursor: pointer; transition: 0.2s;
+    }
+    .admin-btn-login:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(57,128,250,0.2); }
+    .admin-dashboard { display: none; }
+    .admin-dashboard.visible { display: block; }
+
+    /* ICON UPLOAD — new mature file input */
+    .icon-upload-area {
+      margin: 16px 0;
+    }
+    .icon-upload-label {
+      display: flex; align-items: center; gap: 12px; padding: 12px 18px;
+      background: rgba(57,128,250,0.05); border: 1.5px dashed var(--accent-primary); border-radius: 20px;
+      cursor: pointer; transition: 0.2s; color: var(--text-secondary);
+    }
+    .icon-upload-label i { font-size: 1.5rem; color: var(--accent-primary); }
+    .icon-upload-label:hover { background: rgba(57,128,250,0.1); }
+    #iconPreview { margin-top: 8px; font-size: 2rem; text-align: center; display: none; }
+    #iconFileInput { display: none; }
+
+    .admin-mod-item { display: flex; justify-content: space-between; align-items: center; background: rgba(57,128,250,0.02); border: 1px solid rgba(57,128,250,0.06); border-radius: 20px; padding: 16px; margin-top: 12px; }
+    .admin-delete-btn { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); color: var(--danger); padding: 8px 18px; border-radius: 14px; font-weight: 600; font-size: 0.7rem; cursor: pointer; }
+    .admin-logout-btn { background: transparent; border: 1px solid var(--border-subtle); color: var(--text-secondary); padding: 8px 18px; border-radius: 14px; }
+    .footer { background: rgba(14,18,27,0.8); border-top: 1px solid var(--border-subtle); }
+  </style>
+</head>
+<body>
+  <canvas id="particleCanvas"></canvas>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <nav class="drawer" id="drawer">
+    <div class="drawer-header">
+      <div class="drawer-logo">
+        <img src="https://i.postimg.cc/sBPvL2mk/1000021689-removebg-preview.png" alt="SCORPION">
+      </div>
+      <div class="drawer-channel-name" id="drawerName">SCORPION MODZ</div>
+      <div class="drawer-handle" id="drawerHandle">@Scorpion_Modz_bot</div>
+    </div>
+    <div class="drawer-stats">
+      <div class="stat-box"><span class="stat-num" id="totalMods">0</span><span class="stat-label">MODS</span></div>
+      <div class="stat-box"><span class="stat-num">9.2K</span><span class="stat-label">MEMBERS</span></div>
+      <div class="stat-box"><span class="stat-num">99%</span><span class="stat-label">UPTIME</span></div>
+      <div class="stat-box"><span class="stat-num">v5.0</span><span class="stat-label">CORE</span></div>
+    </div>
+    <div class="drawer-nav">
+      <button class="drawer-nav-item active-nav" data-tab="mods"><i class="fa-solid fa-cube"></i> Mod Downloads</button>
+      <button class="drawer-nav-item" data-tab="checker"><i class="fa-solid fa-shield-halved"></i> Status Checker</button>
+      <button class="drawer-nav-item" data-tab="info"><i class="fa-solid fa-circle-info"></i> More Info</button>
+      <button class="drawer-nav-item" data-tab="admin"><i class="fa-solid fa-lock"></i> Admin Panel</button>
+      <a class="drawer-nav-item" href="https://t.me/SCORPION7G" target="_blank"><i class="fa-brands fa-telegram"></i> Telegram Channel</a>
+    </div>
+    <div class="drawer-footer-info">
+      <a class="drawer-tg-btn" href="https://t.me/SCORPION7G" target="_blank"><i class="fa-brands fa-telegram"></i> JOIN SQUAD</a>
+      <div class="drawer-version">DEV BUILD · 2026.08</div>
+    </div>
+  </nav>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="hamburger" id="hamburgerBtn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <div class="topbar-brand">
+        <span class="topbar-scorpion">🦂</span>
+        <span class="topbar-title">SCORPION</span>
+      </div>
+      <div style="display:flex; gap:8px;">
+        <span class="topbar-badge">DEV EDITION</span>
+        <button class="admin-btn" id="quickAdminBtn"><i class="fa-solid fa-lock"></i></button>
+      </div>
+    </header>
+    
+    <section class="hero">
+      <span class="hero-scorpion-icon">🦂</span>
+      <h1 id="heroTitle">SCORPION MODZ</h1>
+      <div class="hero-sub">DEVELOPER TERMINAL</div>
+      <div class="hero-desc-card" id="heroDesc">official mod repository — verified, stable, updated.</div>
+    </section>
+    
+    <div class="search-wrap">
+      <div class="search-container">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search mods...">
+      </div>
+    </div>
+    
+    <div class="section-tabs">
+      <button class="tab-btn active-tab" data-tab="mods">MODS</button>
+      <button class="tab-btn" data-tab="checker">STATUS</button>
+      <button class="tab-btn" data-tab="info">INFO</button>
+      <button class="tab-btn" data-tab="admin">ADMIN</button>
+    </div>
+    
+    <section class="mod-grid" id="modGrid">
+      <div class="loading-spinner"><i class="fa-solid fa-circle-notch fa-spin"></i> loading...</div>
+    </section>
+    
+    <section class="checker-section" id="checkerSection">
+      <div class="checker-card">
+        <div class="checker-title"><i class="fa-solid fa-satellite-dish"></i> SYSTEM STATUS</div>
+        <div class="check-list" id="checkList"></div>
+      </div>
+    </section>
+    
+    <section class="info-section" id="infoSection">
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-title"><i class="fa-solid fa-scroll"></i> ABOUT</div>
+          <p>SCORPION MODZ: clean, fast, dev-first mod distribution.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card-title"><i class="fa-solid fa-list-check"></i> FEATURES</div>
+          <ul>
+            <li>🔹 ESP/Chams support</li>
+            <li>🔹 Root & non-root</li>
+            <li>🔹 weekly updates</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ADMIN PANEL with icon upload -->
+    <section class="admin-panel" id="adminSection">
+      <div class="admin-login-card" id="adminLoginCard">
+        <div class="admin-title"><i class="fa-solid fa-lock"></i> ADMIN LOGIN</div>
+        <div class="admin-input-group"><input type="text" id="adminUsername" placeholder="username"></div>
+        <div class="admin-input-group"><input type="password" id="adminPassword" placeholder="password"></div>
+        <button class="admin-btn-login" id="adminLoginBtn">ACCESS PANEL</button>
+        <div class="admin-error" id="adminError" style="color:var(--danger); display:none;">Invalid</div>
+      </div>
+      <div class="admin-dashboard" id="adminDashboard">
+        <div class="admin-header"><div class="admin-title"><i class="fa-solid fa-gem"></i> DASHBOARD</div><button class="admin-logout-btn" id="adminLogoutBtn">LOGOUT</button></div>
+        <div class="admin-add-form">
+          <div class="admin-title" style="font-size:1rem;"><i class="fa-solid fa-plus"></i> ADD MOD</div>
+          <div class="admin-form-row"><input type="text" id="modName" placeholder="Mod name"><input type="text" id="modDesc" placeholder="Description"></div>
+          <div class="admin-form-row"><input type="text" id="modSize" placeholder="Size (e.g., 1.2 MB)"><input type="text" id="modLink" placeholder="Download link / filename"></div>
+          <div class="admin-form-row">
+            <!-- icon upload field replaces old text emoji -->
+            <div class="icon-upload-area" style="grid-column: span 2;">
+              <label for="iconFileInput" class="icon-upload-label"><i class="fa-solid fa-cloud-upload-alt"></i> <span id="iconFileName">Upload icon (image/emoji)</span></label>
+              <input type="file" id="iconFileInput" accept="image/*,.png,.jpg,.jpeg,.gif,.svg">
+              <div id="iconPreview"></div>
+              <input type="hidden" id="modIcon" value="🦂">
+            </div>
+          </div>
+          <div class="admin-form-full"><select id="modCategory"><option value="esp">ESP</option><option value="injector">Injector</option><option value="tool">Tool</option><option value="config">Config</option></select></div>
+          <button class="admin-submit-btn" id="addModBtn">PUBLISH MOD</button>
+          <div class="admin-success" id="adminSuccess" style="color:var(--success); display:none;">Mod added</div>
+        </div>
+        <div class="admin-add-form"><div class="admin-title" style="font-size:1rem;"><i class="fa-solid fa-list"></i> MANAGE MODS</div><div id="adminModList"></div></div>
+      </div>
+    </section>
+    <footer class="app-footer" style="background: rgba(14,18,27,0.8); border-top: 1px solid rgba(57,128,250,0.1); padding: 24px; text-align: center;">
+      <div class="footer-line"><span style="color:var(--accent-primary);">SCORPION MODZ</span> · DEV TERMINAL</div>
+      <a class="footer-tg" href="https://t.me/SCORPION7G" target="_blank"><i class="fa-brands fa-telegram"></i> JOIN</a>
+    </footer>
+  </div>
+
+  <!-- Firebase module (unchanged config) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+    import { getDatabase, ref, set, onValue, push, remove } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-database.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyCcVdUBxmufQ5tDSIxgRmpdpqukVi5HDfM",
+      authDomain: "scorpion-web-75c22.firebaseapp.com",
+      projectId: "scorpion-web-75c22",
+      storageBucket: "scorpion-web-75c22.firebasestorage.app",
+      messagingSenderId: "982149963016",
+      appId: "1:982149963016:web:666812b9f5782b60d7a0bd",
+      databaseURL: "https://scorpion-web-75c22-default-rtdb.firebaseio.com/"
+    };
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    window.firebaseDatabase = database;
+    window.firebaseRef = ref(database, 'mods');
+    window.firebaseSet = set; window.firebaseOnValue = onValue; window.firebasePush = push; window.firebaseRemove = remove;
+  </script>
+
+  <script>
+    (function(){
+      const checkFB = setInterval(()=>{ if(window.firebaseRef) { clearInterval(checkFB); initApp(); } },100);
+      function initApp() {
+        const modsRef = window.firebaseRef, database = window.firebaseDatabase;
+        const ADMIN_USERNAME = "Scorpion", ADMIN_PASSWORD = "Modz";
+        let files = [], isAdminLoggedIn = false;
+        const channel = { name:"SCORPION MODZ", handle:"@Scorpion_Modz_bot", desc:"mature dev build — stable tools & mods." };
+        document.getElementById('heroTitle').innerText = channel.name; document.getElementById('heroDesc').innerText = channel.desc; document.getElementById('drawerName').innerText = channel.name; document.getElementById('drawerHandle').innerText = channel.handle;
+
+        // status items
+        const statusItems = [
+          { name:"API Core", detail:"operational", status:"online" },
+          { name:"Download CDN", detail:"edge network", status:"online" },
+          { name:"Bot service", detail:"responsive", status:"online" },
+          { name:"FF MAX patch", detail:"compatibility", status:"warning" },
+          { name:"iOS support", detail:"limited", status:"offline" }
+        ];
+
+        // Render status
+        const checkList = document.getElementById('checkList');
+        statusItems.forEach(s=>{ let d=document.createElement('div'); d.className='check-item'; d.innerHTML=`<div class="check-dot ${s.status}"></div><div class="check-info"><div class="check-name">${s.name}</div><div class="check-detail">${s.detail}</div></div><span class="check-status-text status-${s.status==='online'?'live':s.status==='offline'?'down':'warn'}">${s.status.toUpperCase()}</span>`; checkList.appendChild(d); });
+
+        // Load firebase
+        function loadModsFromFirebase() {
+          window.firebaseOnValue(modsRef, (snapshot)=>{
+            const data = snapshot.val();
+            if(data) files = Object.keys(data).map(key => ({id:key, ...data[key]}));
+            else files = [
+              { name:"ZYGISK FF ESP v5", desc:"root esp/chams", size:"1.2 MB", link:"zygisk_ff.zip", icon:"🛡️", category:"esp" },
+              { name:"DARK INJECTOR", desc:"non-root apk", size:"2.3 MB", link:"injector.apk", icon:"⚡", category:"injector" }
+            ];
+            renderMods(files); updateModCount(); if(isAdminLoggedIn) renderAdminModList();
+          });
+        }
+
+        function saveModsToFirebase() { window.firebaseSet(modsRef, null).then(()=>{ files.forEach(m=>{ let newRef = window.firebasePush(modsRef); window.firebaseSet(newRef, m); }); }); }
+        function updateModCount(){ document.getElementById('totalMods').innerText = files.length; }
+
+        // render mods
+        function renderMods(list){
+          const grid = document.getElementById('modGrid'); grid.innerHTML='';
+          if(!list.length){ grid.innerHTML='<div class="no-result">no mods</div>'; return; }
+          list.forEach((f,i)=>{
+            let card = document.createElement('div'); card.className='mod-card'; card.style.animationDelay=i*0.04+'s';
+            card.innerHTML = `<div class="mod-card-icon">${f.icon || '📦'}</div><h3>${f.name}</h3><div class="mod-desc">${f.desc}</div><div class="mod-card-footer"><span class="mod-size-tag">${f.size}</span><a href="${f.link}" class="mod-dl-btn" download><i class="fa-solid fa-download"></i> GET</a></div>`;
+            grid.appendChild(card);
+          });
+        }
+
+        // icon upload handler
+        const fileInput = document.getElementById('iconFileInput');
+        const iconPreview = document.getElementById('iconPreview');
+        const iconFileName = document.getElementById('iconFileName');
+        const modIconHidden = document.getElementById('modIcon');
+        fileInput.addEventListener('change', function(e) {
+          const file = e.target.files[0];
+          if (file) {
+            iconFileName.innerText = file.name;
+            const reader = new FileReader();
+            reader.onload = function(ev) {
+              // store as dataURL (or you could use emoji fallback, we store as emoji for simplicity but preview)
+              iconPreview.style.display = 'block';
+              iconPreview.innerHTML = `<img src="${ev.target.result}" style="max-width: 48px; max-height:48px; border-radius:12px;">`;
+              modIconHidden.value = '🖼️';  // you may keep an emoji fallback, but we'll also keep the actual file for demo
+              // In a full version you'd upload to storage. For demo we set icon as "🖼️" but preserve preview.
+            };
+            reader.readAsDataURL(file);
+          } else { iconFileName.innerText = 'Upload icon (image/emoji)'; iconPreview.style.display='none'; modIconHidden.value='🦂'; }
+        });
+
+        // admin add mod
+        document.getElementById('addModBtn').addEventListener('click', ()=>{
+          let name = document.getElementById('modName').value;
+          let desc = document.getElementById('modDesc').value;
+          let size = document.getElementById('modSize').value;
+          let link = document.getElementById('modLink').value;
+          let icon = modIconHidden.value || '🦂';
+          let category = document.getElementById('modCategory').value;
+          if(!name||!desc||!size||!link) return alert('fill all');
+          let newMod = { name, desc, size, link, icon, category };
+          let newRef = window.firebasePush(modsRef);
+          window.firebaseSet(newRef, newMod);
+          document.getElementById('adminSuccess').style.display='block'; setTimeout(()=>document.getElementById('adminSuccess').style.display='none',2000);
+          document.getElementById('modName').value=''; document.getElementById('modDesc').value=''; document.getElementById('modSize').value=''; document.getElementById('modLink').value=''; iconPreview.style.display='none'; iconFileName.innerText='Upload icon (image/emoji)'; modIconHidden.value='🦂';
+        });
+
+        function renderAdminModList(){
+          let container = document.getElementById('adminModList'); container.innerHTML='';
+          files.forEach(m=>{
+            let d = document.createElement('div'); d.className='admin-mod-item';
+            d.innerHTML=`<div><h4>${m.name}</h4><p style="color:var(--text-secondary);">${m.desc}</p></div><button class="admin-delete-btn" data-id="${m.id}">DELETE</button>`;
+            container.appendChild(d);
+          });
+          document.querySelectorAll('.admin-delete-btn').forEach(b=> b.addEventListener('click', (e)=>{
+            if(confirm('Delete?')) { let id = e.target.getAttribute('data-id'); window.firebaseRemove(ref(database, 'mods/'+id)); }
+          }));
+        }
+
+        // login / logout
+        document.getElementById('adminLoginBtn').addEventListener('click', ()=>{
+          let u = document.getElementById('adminUsername').value, p = document.getElementById('adminPassword').value;
+          if(u===ADMIN_USERNAME && p===ADMIN_PASSWORD){
+            isAdminLoggedIn = true; document.getElementById('adminError').style.display='none'; checkAdminAuth();
+          } else document.getElementById('adminError').style.display='block';
+        });
+        document.getElementById('adminLogoutBtn').addEventListener('click', ()=>{ isAdminLoggedIn=false; checkAdminAuth(); });
+        function checkAdminAuth(){
+          let loginCard = document.getElementById('adminLoginCard'), dashboard = document.getElementById('adminDashboard');
+          if(isAdminLoggedIn){ loginCard.style.display='none'; dashboard.classList.add('visible'); renderAdminModList(); }
+          else { loginCard.style.display='block'; dashboard.classList.remove('visible'); }
+        }
+
+        // tab switching, search etc (same logic)
+        const tabs = document.querySelectorAll('.tab-btn, .drawer-nav-item[data-tab]');
+        function switchTab(tab){
+          document.querySelectorAll('.tab-btn').forEach(b=> b.classList.toggle('active-tab', b.dataset.tab===tab));
+          document.querySelectorAll('.drawer-nav-item[data-tab]').forEach(i=> i.classList.toggle('active-nav', i.dataset.tab===tab));
+          document.getElementById('modGrid').style.display = tab==='mods'?'grid':'none';
+          document.getElementById('checkerSection').classList.toggle('visible', tab==='checker');
+          document.getElementById('infoSection').classList.toggle('visible', tab==='info');
+          document.getElementById('adminSection').classList.toggle('visible', tab==='admin');
+          if(tab==='admin') checkAdminAuth();
+          closeDrawer();
+        }
+        document.querySelectorAll('.tab-btn').forEach(b=> b.addEventListener('click', ()=> switchTab(b.dataset.tab)));
+        document.querySelectorAll('.drawer-nav-item[data-tab]').forEach(i=> i.addEventListener('click', ()=> switchTab(i.dataset.tab)));
+
+        // hamburger
+        const hamburger = document.getElementById('hamburgerBtn'), drawer = document.getElementById('drawer'), overlay = document.getElementById('drawerOverlay');
+        function openDrawer(){ drawer.classList.add('open'); overlay.classList.add('open'); hamburger.classList.add('active'); }
+        function closeDrawer(){ drawer.classList.remove('open'); overlay.classList.remove('open'); hamburger.classList.remove('active'); }
+        hamburger.addEventListener('click', ()=> drawer.classList.contains('open') ? closeDrawer() : openDrawer());
+        overlay.addEventListener('click', closeDrawer);
+        document.getElementById('quickAdminBtn').addEventListener('click', ()=> switchTab('admin'));
+
+        // search
+        document.getElementById('searchInput').addEventListener('input', (e)=>{
+          let q = e.target.value.toLowerCase();
+          renderMods(files.filter(f=> f.name.toLowerCase().includes(q) || f.desc.toLowerCase().includes(q)));
+        });
+
+        // particles (original, keep)
+        const canvas = document.getElementById('particleCanvas'), ctx = canvas.getContext('2d');
+        let W, H, particles=[];
+        function resizeCanvas(){ W=window.innerWidth; H=window.innerHeight; canvas.width=W; canvas.height=H; initParticles(); }
+        function Particle(){ this.x=Math.random()*W; this.y=Math.random()*H; this.r=Math.random()*2+0.8; this.dx=(Math.random()-0.5)*0.3; this.dy=(Math.random()-0.5)*0.3; this.color='#3980fa'; this.alpha=Math.random()*0.3+0.1; }
+        Particle.prototype.update=function(){ this.x+=this.dx; this.y+=this.dy; if(this.x<0||this.x>W)this.dx*=-1; if(this.y<0||this.y>H)this.dy*=-1; };
+        Particle.prototype.draw=function(){ ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,2*Math.PI); ctx.fillStyle=this.color; ctx.globalAlpha=this.alpha; ctx.fill(); };
+        function initParticles(){ particles=[]; for(let i=0;i<80;i++) particles.push(new Particle()); }
+        function animate(){ ctx.clearRect(0,0,W,H); particles.forEach(p=>{ p.update(); p.draw(); }); requestAnimationFrame(animate); }
+        window.addEventListener('resize', resizeCanvas); resizeCanvas(); animate();
+
+        loadModsFromFirebase();
+      }
+    })();
+  </script>
+</body>
+</html>      font-size: 1.1rem;
+      letter-spacing: 2px;
+      color: var(--text-primary);
+    }
+    .topbar-badge {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border: 1px solid var(--accent-tertiary);
+      border-radius: 30px;
+      color: var(--accent-primary);
+      background: rgba(57,128,250,0.05);
+    }
+
+    .admin-btn {
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      color: var(--accent-primary);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+      margin-left: 8px;
+    }
+    .admin-btn:hover {
+      border-color: var(--accent-primary);
+      background: rgba(57,128,250,0.08);
+      color: var(--text-primary);
+    }
+
+    /* drawer — deeper & sharp */
+    .drawer-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 200;
+      opacity: 0; visibility: hidden;
+      transition: 0.3s ease;
+      backdrop-filter: blur(3px);
+    }
+    .drawer-overlay.open { opacity: 1; visibility: visible; }
+
+    .drawer {
+      position: fixed; top: 0; left: 0;
+      width: 320px; max-width: 85vw;
+      height: 100vh;
+      z-index: 300;
+      background: linear-gradient(145deg, var(--depth-800), var(--depth-900));
+      border-right: 1px solid var(--border-subtle);
+      box-shadow: 15px 0 50px -20px black;
+      transform: translateX(-100%);
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex; flex-direction: column;
+    }
+    .drawer.open { transform: translateX(0); }
+
+    .drawer-header {
+      padding: 28px 20px 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(57,128,250,0.08);
+    }
+    .drawer-logo {
+      width: 80px; height: 80px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--depth-600), var(--accent-secondary));
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 0 3px rgba(57,128,250,0.15);
+      overflow: hidden;
+    }
+    .drawer-logo img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+    .drawer-channel-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--text-primary);
+    }
+    .drawer-handle {
+      font-size: 0.85rem;
+      color: var(--accent-primary);
+    }
+
+    .drawer-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+      padding: 20px;
+      border-bottom: 1px solid rgba(57,128,250,0.06);
+    }
+    .stat-box {
+      background: rgba(57,128,250,0.04);
+      border: 1px solid rgba(57,128,250,0.08);
+      border-radius: 14px;
+      padding: 12px 8px;
+      text-align: center;
+    }
+    .stat-box .stat-num {
+      font-weight: 700; font-size: 1.4rem; color: var(--accent-primary); display: block;
+    }
+    .stat-box .stat-label {
+      font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary);
+    }
+
+    .drawer-nav {
+      padding: 14px 16px; flex: 1;
+    }
+    .drawer-nav-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 16px; border-radius: 12px;
+      font-weight: 500; color: var(--text-secondary);
+      cursor: pointer; transition: 0.2s;
+      width: 100%; background: none; border: none; text-align: left;
+    }
+    .drawer-nav-item i { width: 22px; color: var(--accent-primary); }
+    .drawer-nav-item:hover { background: rgba(57,128,250,0.08); color: white; }
+    .drawer-nav-item.active-nav { background: rgba(57,128,250,0.12); color: white; border-left: 3px solid var(--accent-primary); }
+
+    .drawer-footer-info {
+      padding: 20px; border-top: 1px solid rgba(57,128,250,0.06);
+      text-align: center;
+    }
+    .drawer-tg-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
+      color: white; font-weight: 600; font-size: 0.8rem;
+      border-radius: 40px; text-decoration: none;
+      box-shadow: 0 6px 18px rgba(57,128,250,0.2);
+    }
+    .drawer-tg-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(57,128,250,0.3); }
+
+    /* hero */
+    .hero {
+      padding: 40px 24px 20px;
+      text-align: center;
+    }
+    .hero-scorpion-icon {
+      font-size: 3.8rem; display: block; margin-bottom: 8px;
+      filter: drop-shadow(0 0 16px var(--accent-primary));
+      animation: subtleDrift 4s infinite;
+    }
+    @keyframes subtleDrift { 0%{ transform: translateY(0);} 50%{ transform: translateY(-6px);} }
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: clamp(2rem, 6vw, 3rem);
+      letter-spacing: 2px;
+      color: white;
+      text-shadow: 0 2px 15px var(--glow-highlight);
+    }
+    .hero-sub {
+      font-size: 0.9rem; letter-spacing: 3px; color: var(--accent-primary); text-transform: uppercase;
+    }
+    .hero-desc-card {
+      max-width: 700px; margin: 24px auto 0;
+      padding: 18px 26px; background: var(--glass-bg); backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle); border-radius: 28px;
+      color: var(--text-secondary); font-size: 0.95rem;
+    }
+
+    /* search */
+    .search-wrap { display: flex; justify-content: center; padding: 10px 20px 25px; }
+    .search-container {
+      position: relative; width: 100%; max-width: 560px;
+    }
+    .search-container i {
+      position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+      color: var(--accent-primary); font-size: 1rem;
+    }
+    .search-container input {
+      width: 100%; padding: 16px 22px 16px 48px;
+      font-size: 0.95rem; background: var(--card-bg);
+      border: 1.5px solid rgba(57,128,250,0.15); border-radius: 18px;
+      color: var(--text-primary); outline: none;
+    }
+    .search-container input:focus { border-color: var(--accent-primary); box-shadow: 0 0 0 3px rgba(57,128,250,0.1); }
+
+    /* tabs */
+    .section-tabs {
+      display: flex; justify-content: center; gap: 8px; padding: 0 20px 24px; flex-wrap: wrap;
+    }
+    .tab-btn {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.7rem;
+      letter-spacing: 1.5px; padding: 10px 24px;
+      border: 1px solid rgba(57,128,250,0.15); border-radius: 14px;
+      background: transparent; color: var(--text-secondary); cursor: pointer;
+    }
+    .tab-btn:hover { border-color: var(--accent-primary); color: white; }
+    .tab-btn.active-tab {
+      background: rgba(57,128,250,0.1); border-color: var(--accent-primary); color: white;
+    }
+
+    /* mod grid */
+    .mod-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+      padding: 0 20px 40px; max-width: 1000px; margin: 0 auto;
+    }
+    @media (max-width:640px){ .mod-grid{ grid-template-columns:1fr; } }
+    .mod-card {
+      background: var(--card-bg); backdrop-filter: blur(8px);
+      border: 1px solid rgba(57,128,250,0.08); border-radius: 26px;
+      padding: 24px 22px 20px; transition: 0.25s ease;
+      box-shadow: var(--shadow-heavy);
+    }
+    .mod-card:hover { transform: translateY(-4px); border-color: rgba(57,128,250,0.2); box-shadow: 0 25px 50px -12px black; }
+    .mod-card-icon { font-size: 2rem; margin-bottom: 12px; filter: drop-shadow(0 0 6px var(--accent-primary)); }
+    .mod-card h3 { font-weight: 700; font-size: 1rem; color: white; margin-bottom: 6px; }
+    .mod-desc { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px; }
+    .mod-card-footer { display: flex; align-items: center; justify-content: space-between; }
+    .mod-size-tag {
+      font-size: 0.65rem; font-weight: 600; padding: 4px 10px; background: rgba(57,128,250,0.06);
+      border: 1px solid rgba(57,128,250,0.1); border-radius: 8px; color: var(--accent-primary);
+    }
+    .mod-dl-btn {
+      display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px;
+      font-weight: 600; font-size: 0.7rem; text-decoration: none; color: white;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
+      border-radius: 14px; transition: 0.2s; border: none; cursor: pointer;
+    }
+    .mod-dl-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(57,128,250,0.3); }
+
+    /* status checker, info, admin unified */
+    .checker-section, .info-section, .admin-panel { max-width: 1000px; margin: 0 auto 50px; padding: 0 20px; display: none; }
+    .visible { display: block; }
+    .checker-card, .admin-login-card, .admin-add-form { background: var(--card-bg); border: 1px solid rgba(57,128,250,0.08); border-radius: 32px; padding: 28px 26px; backdrop-filter: blur(10px); }
+
+    .checker-title, .admin-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; color: white; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+
+    .check-item {
+      display: flex; align-items: center; gap: 16px; padding: 16px; background: rgba(57,128,250,0.02);
+      border: 1px solid rgba(57,128,250,0.05); border-radius: 20px; margin-bottom: 8px;
+    }
+    .check-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+    .check-dot.online { background: var(--success); box-shadow: 0 0 12px var(--success); }
+    .check-dot.offline { background: var(--danger); box-shadow: 0 0 12px var(--danger); }
+    .check-dot.warning { background: var(--warning); box-shadow: 0 0 12px var(--warning); }
+    .check-status-text { font-weight: 600; font-size: 0.6rem; padding: 4px 12px; border-radius: 30px; }
+    .status-live { background: rgba(16,185,129,0.1); color: var(--success); }
+    .status-down { background: rgba(239,68,68,0.1); color: var(--danger); }
+    .status-warn { background: rgba(245,158,11,0.1); color: var(--warning); }
+
+    .info-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+    .info-card { background: var(--card-bg); border: 1px solid rgba(57,128,250,0.08); border-radius: 28px; padding: 24px; }
+    .info-card-title { font-weight: 700; color: var(--accent-primary); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+
+    /* admin panel refined */
+    .admin-input-group { margin-bottom: 18px; }
+    .admin-input-group input, .admin-form-row input, .admin-form-full input, .admin-form-full select {
+      width: 100%; padding: 14px 18px; background: rgba(14,18,27,0.7); border: 1.5px solid rgba(57,128,250,0.15);
+      border-radius: 16px; color: white; font-size: 0.95rem; outline: none;
+    }
+    .admin-input-group input:focus { border-color: var(--accent-primary); }
+    .admin-btn-login, .admin-submit-btn {
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary)); border: none;
+      padding: 14px 28px; border-radius: 16px; font-weight: 600; color: white; cursor: pointer; transition: 0.2s;
+    }
+    .admin-btn-login:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(57,128,250,0.2); }
+    .admin-dashboard { display: none; }
+    .admin-dashboard.visible { display: block; }
+
+    /* ICON UPLOAD — new mature file input */
+    .icon-upload-area {
+      margin: 16px 0;
+    }
+    .icon-upload-label {
+      display: flex; align-items: center; gap: 12px; padding: 12px 18px;
+      background: rgba(57,128,250,0.05); border: 1.5px dashed var(--accent-primary); border-radius: 20px;
+      cursor: pointer; transition: 0.2s; color: var(--text-secondary);
+    }
+    .icon-upload-label i { font-size: 1.5rem; color: var(--accent-primary); }
+    .icon-upload-label:hover { background: rgba(57,128,250,0.1); }
+    #iconPreview { margin-top: 8px; font-size: 2rem; text-align: center; display: none; }
+    #iconFileInput { display: none; }
+
+    .admin-mod-item { display: flex; justify-content: space-between; align-items: center; background: rgba(57,128,250,0.02); border: 1px solid rgba(57,128,250,0.06); border-radius: 20px; padding: 16px; margin-top: 12px; }
+    .admin-delete-btn { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2); color: var(--danger); padding: 8px 18px; border-radius: 14px; font-weight: 600; font-size: 0.7rem; cursor: pointer; }
+    .admin-logout-btn { background: transparent; border: 1px solid var(--border-subtle); color: var(--text-secondary); padding: 8px 18px; border-radius: 14px; }
+    .footer { background: rgba(14,18,27,0.8); border-top: 1px solid var(--border-subtle); }
+  </style>
+</head>
+<body>
+  <canvas id="particleCanvas"></canvas>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <nav class="drawer" id="drawer">
+    <div class="drawer-header">
+      <div class="drawer-logo">
+        <img src="https://i.postimg.cc/sBPvL2mk/1000021689-removebg-preview.png" alt="SCORPION">
+      </div>
+      <div class="drawer-channel-name" id="drawerName">SCORPION MODZ</div>
+      <div class="drawer-handle" id="drawerHandle">@Scorpion_Modz_bot</div>
+    </div>
+    <div class="drawer-stats">
+      <div class="stat-box"><span class="stat-num" id="totalMods">0</span><span class="stat-label">MODS</span></div>
+      <div class="stat-box"><span class="stat-num">9.2K</span><span class="stat-label">MEMBERS</span></div>
+      <div class="stat-box"><span class="stat-num">99%</span><span class="stat-label">UPTIME</span></div>
+      <div class="stat-box"><span class="stat-num">v5.0</span><span class="stat-label">CORE</span></div>
+    </div>
+    <div class="drawer-nav">
+      <button class="drawer-nav-item active-nav" data-tab="mods"><i class="fa-solid fa-cube"></i> Mod Downloads</button>
+      <button class="drawer-nav-item" data-tab="checker"><i class="fa-solid fa-shield-halved"></i> Status Checker</button>
+      <button class="drawer-nav-item" data-tab="info"><i class="fa-solid fa-circle-info"></i> More Info</button>
+      <button class="drawer-nav-item" data-tab="admin"><i class="fa-solid fa-lock"></i> Admin Panel</button>
+      <a class="drawer-nav-item" href="https://t.me/SCORPION7G" target="_blank"><i class="fa-brands fa-telegram"></i> Telegram Channel</a>
+    </div>
+    <div class="drawer-footer-info">
+      <a class="drawer-tg-btn" href="https://t.me/SCORPION7G" target="_blank"><i class="fa-brands fa-telegram"></i> JOIN SQUAD</a>
+      <div class="drawer-version">DEV BUILD · 2026.08</div>
+    </div>
+  </nav>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="hamburger" id="hamburgerBtn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <div class="topbar-brand">
+        <span class="topbar-scorpion">🦂</span>
+        <span class="topbar-title">SCORPION</span>
+      </div>
+      <div style="display:flex; gap:8px;">
+        <span class="topbar-badge">DEV EDITION</span>
+        <button class="admin-btn" id="quickAdminBtn"><i class="fa-solid fa-lock"></i></button>
+      </div>
+    </header>
+    
+    <section class="hero">
+      <span class="hero-scorpion-icon">🦂</span>
+      <h1 id="heroTitle">SCORPION MODZ</h1>
+      <div class="hero-sub">DEVELOPER TERMINAL</div>
+      <div class="hero-desc-card" id="heroDesc">official mod repository — verified, stable, updated.</div>
+    </section>
+    
+    <div class="search-wrap">
+      <div class="search-container">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search mods...">
+      </div>
+    </div>
+    
+    <div class="section-tabs">
+      <button class="tab-btn active-tab" data-tab="mods">MODS</button>
+      <button class="tab-btn" data-tab="checker">STATUS</button>
+      <button class="tab-btn" data-tab="info">INFO</button>
+      <button class="tab-btn" data-tab="admin">ADMIN</button>
+    </div>
+    
+    <section class="mod-grid" id="modGrid">
+      <div class="loading-spinner"><i class="fa-solid fa-circle-notch fa-spin"></i> loading...</div>
+    </section>
+    
+    <section class="checker-section" id="checkerSection">
+      <div class="checker-card">
+        <div class="checker-title"><i class="fa-solid fa-satellite-dish"></i> SYSTEM STATUS</div>
+        <div class="check-list" id="checkList"></div>
+      </div>
+    </section>
+    
+    <section class="info-section" id="infoSection">
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-title"><i class="fa-solid fa-scroll"></i> ABOUT</div>
+          <p>SCORPION MODZ: clean, fast, dev-first mod distribution.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card-title"><i class="fa-solid fa-list-check"></i> FEATURES</div>
+          <ul>
+            <li>🔹 ESP/Chams support</li>
+            <li>🔹 Root & non-root</li>
+            <li>🔹 weekly updates</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ADMIN PANEL with icon upload -->
+    <section class="admin-panel" id="adminSection">
+      <div class="admin-login-card" id="adminLoginCard">
+        <div class="admin-title"><i class="fa-solid fa-lock"></i> ADMIN LOGIN</div>
+        <div class="admin-input-group"><input type="text" id="adminUsername" placeholder="username"></div>
+        <div class="admin-input-group"><input type="password" id="adminPassword" placeholder="password"></div>
+        <button class="admin-btn-login" id="adminLoginBtn">ACCESS PANEL</button>
+        <div class="admin-error" id="adminError" style="color:var(--danger); display:none;">Invalid</div>
+      </div>
+      <div class="admin-dashboard" id="adminDashboard">
+        <div class="admin-header"><div class="admin-title"><i class="fa-solid fa-gem"></i> DASHBOARD</div><button class="admin-logout-btn" id="adminLogoutBtn">LOGOUT</button></div>
+        <div class="admin-add-form">
+          <div class="admin-title" style="font-size:1rem;"><i class="fa-solid fa-plus"></i> ADD MOD</div>
+          <div class="admin-form-row"><input type="text" id="modName" placeholder="Mod name"><input type="text" id="modDesc" placeholder="Description"></div>
+          <div class="admin-form-row"><input type="text" id="modSize" placeholder="Size (e.g., 1.2 MB)"><input type="text" id="modLink" placeholder="Download link / filename"></div>
+          <div class="admin-form-row">
+            <!-- icon upload field replaces old text emoji -->
+            <div class="icon-upload-area" style="grid-column: span 2;">
+              <label for="iconFileInput" class="icon-upload-label"><i class="fa-solid fa-cloud-upload-alt"></i> <span id="iconFileName">Upload icon (image/emoji)</span></label>
+              <input type="file" id="iconFileInput" accept="image/*,.png,.jpg,.jpeg,.gif,.svg">
+              <div id="iconPreview"></div>
+              <input type="hidden" id="modIcon" value="🦂">
+            </div>
+          </div>
+          <div class="admin-form-full"><select id="modCategory"><option value="esp">ESP</option><option value="injector">Injector</option><option value="tool">Tool</option><option value="config">Config</option></select></div>
+          <button class="admin-submit-btn" id="addModBtn">PUBLISH MOD</button>
+          <div class="admin-success" id="adminSuccess" style="color:var(--success); display:none;">Mod added</div>
+        </div>
+        <div class="admin-add-form"><div class="admin-title" style="font-size:1rem;"><i class="fa-solid fa-list"></i> MANAGE MODS</div><div id="adminModList"></div></div>
+      </div>
+    </section>
+    <footer class="app-footer" style="background: rgba(14,18,27,0.8); border-top: 1px solid rgba(57,128,250,0.1); padding: 24px; text-align: center;">
+      <div class="footer-line"><span style="color:var(--accent-primary);">SCORPION MODZ</span> · DEV TERMINAL</div>
+      <a class="footer-tg" href="https://t.me/SCORPION7G" target="_blank"><i class="fa-brands fa-telegram"></i> JOIN</a>
+    </footer>
+  </div>
+
+  <!-- Firebase module (unchanged config) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+    import { getDatabase, ref, set, onValue, push, remove } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-database.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyCcVdUBxmufQ5tDSIxgRmpdpqukVi5HDfM",
+      authDomain: "scorpion-web-75c22.firebaseapp.com",
+      projectId: "scorpion-web-75c22",
+      storageBucket: "scorpion-web-75c22.firebasestorage.app",
+      messagingSenderId: "982149963016",
+      appId: "1:982149963016:web:666812b9f5782b60d7a0bd",
+      databaseURL: "https://scorpion-web-75c22-default-rtdb.firebaseio.com/"
+    };
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    window.firebaseDatabase = database;
+    window.firebaseRef = ref(database, 'mods');
+    window.firebaseSet = set; window.firebaseOnValue = onValue; window.firebasePush = push; window.firebaseRemove = remove;
+  </script>
+
+  <script>
+    (function(){
+      const checkFB = setInterval(()=>{ if(window.firebaseRef) { clearInterval(checkFB); initApp(); } },100);
+      function initApp() {
+        const modsRef = window.firebaseRef, database = window.firebaseDatabase;
+        const ADMIN_USERNAME = "Scorpion", ADMIN_PASSWORD = "Modz";
+        let files = [], isAdminLoggedIn = false;
+        const channel = { name:"SCORPION MODZ", handle:"@Scorpion_Modz_bot", desc:"mature dev build — stable tools & mods." };
+        document.getElementById('heroTitle').innerText = channel.name; document.getElementById('heroDesc').innerText = channel.desc; document.getElementById('drawerName').innerText = channel.name; document.getElementById('drawerHandle').innerText = channel.handle;
+
+        // status items
+        const statusItems = [
+          { name:"API Core", detail:"operational", status:"online" },
+          { name:"Download CDN", detail:"edge network", status:"online" },
+          { name:"Bot service", detail:"responsive", status:"online" },
+          { name:"FF MAX patch", detail:"compatibility", status:"warning" },
+          { name:"iOS support", detail:"limited", status:"offline" }
+        ];
+
+        // Render status
+        const checkList = document.getElementById('checkList');
+        statusItems.forEach(s=>{ let d=document.createElement('div'); d.className='check-item'; d.innerHTML=`<div class="check-dot ${s.status}"></div><div class="check-info"><div class="check-name">${s.name}</div><div class="check-detail">${s.detail}</div></div><span class="check-status-text status-${s.status==='online'?'live':s.status==='offline'?'down':'warn'}">${s.status.toUpperCase()}</span>`; checkList.appendChild(d); });
+
+        // Load firebase
+        function loadModsFromFirebase() {
+          window.firebaseOnValue(modsRef, (snapshot)=>{
+            const data = snapshot.val();
+            if(data) files = Object.keys(data).map(key => ({id:key, ...data[key]}));
+            else files = [
+              { name:"ZYGISK FF ESP v5", desc:"root esp/chams", size:"1.2 MB", link:"zygisk_ff.zip", icon:"🛡️", category:"esp" },
+              { name:"DARK INJECTOR", desc:"non-root apk", size:"2.3 MB", link:"injector.apk", icon:"⚡", category:"injector" }
+            ];
+            renderMods(files); updateModCount(); if(isAdminLoggedIn) renderAdminModList();
+          });
+        }
+
+        function saveModsToFirebase() { window.firebaseSet(modsRef, null).then(()=>{ files.forEach(m=>{ let newRef = window.firebasePush(modsRef); window.firebaseSet(newRef, m); }); }); }
+        function updateModCount(){ document.getElementById('totalMods').innerText = files.length; }
+
+        // render mods
+        function renderMods(list){
+          const grid = document.getElementById('modGrid'); grid.innerHTML='';
+          if(!list.length){ grid.innerHTML='<div class="no-result">no mods</div>'; return; }
+          list.forEach((f,i)=>{
+            let card = document.createElement('div'); card.className='mod-card'; card.style.animationDelay=i*0.04+'s';
+            card.innerHTML = `<div class="mod-card-icon">${f.icon || '📦'}</div><h3>${f.name}</h3><div class="mod-desc">${f.desc}</div><div class="mod-card-footer"><span class="mod-size-tag">${f.size}</span><a href="${f.link}" class="mod-dl-btn" download><i class="fa-solid fa-download"></i> GET</a></div>`;
+            grid.appendChild(card);
+          });
+        }
+
+        // icon upload handler
+        const fileInput = document.getElementById('iconFileInput');
+        const iconPreview = document.getElementById('iconPreview');
+        const iconFileName = document.getElementById('iconFileName');
+        const modIconHidden = document.getElementById('modIcon');
+        fileInput.addEventListener('change', function(e) {
+          const file = e.target.files[0];
+          if (file) {
+            iconFileName.innerText = file.name;
+            const reader = new FileReader();
+            reader.onload = function(ev) {
+              // store as dataURL (or you could use emoji fallback, we store as emoji for simplicity but preview)
+              iconPreview.style.display = 'block';
+              iconPreview.innerHTML = `<img src="${ev.target.result}" style="max-width: 48px; max-height:48px; border-radius:12px;">`;
+              modIconHidden.value = '🖼️';  // you may keep an emoji fallback, but we'll also keep the actual file for demo
+              // In a full version you'd upload to storage. For demo we set icon as "🖼️" but preserve preview.
+            };
+            reader.readAsDataURL(file);
+          } else { iconFileName.innerText = 'Upload icon (image/emoji)'; iconPreview.style.display='none'; modIconHidden.value='🦂'; }
+        });
+
+        // admin add mod
+        document.getElementById('addModBtn').addEventListener('click', ()=>{
+          let name = document.getElementById('modName').value;
+          let desc = document.getElementById('modDesc').value;
+          let size = document.getElementById('modSize').value;
+          let link = document.getElementById('modLink').value;
+          let icon = modIconHidden.value || '🦂';
+          let category = document.getElementById('modCategory').value;
+          if(!name||!desc||!size||!link) return alert('fill all');
+          let newMod = { name, desc, size, link, icon, category };
+          let newRef = window.firebasePush(modsRef);
+          window.firebaseSet(newRef, newMod);
+          document.getElementById('adminSuccess').style.display='block'; setTimeout(()=>document.getElementById('adminSuccess').style.display='none',2000);
+          document.getElementById('modName').value=''; document.getElementById('modDesc').value=''; document.getElementById('modSize').value=''; document.getElementById('modLink').value=''; iconPreview.style.display='none'; iconFileName.innerText='Upload icon (image/emoji)'; modIconHidden.value='🦂';
+        });
+
+        function renderAdminModList(){
+          let container = document.getElementById('adminModList'); container.innerHTML='';
+          files.forEach(m=>{
+            let d = document.createElement('div'); d.className='admin-mod-item';
+            d.innerHTML=`<div><h4>${m.name}</h4><p style="color:var(--text-secondary);">${m.desc}</p></div><button class="admin-delete-btn" data-id="${m.id}">DELETE</button>`;
+            container.appendChild(d);
+          });
+          document.querySelectorAll('.admin-delete-btn').forEach(b=> b.addEventListener('click', (e)=>{
+            if(confirm('Delete?')) { let id = e.target.getAttribute('data-id'); window.firebaseRemove(ref(database, 'mods/'+id)); }
+          }));
+        }
+
+        // login / logout
+        document.getElementById('adminLoginBtn').addEventListener('click', ()=>{
+          let u = document.getElementById('adminUsername').value, p = document.getElementById('adminPassword').value;
+          if(u===ADMIN_USERNAME && p===ADMIN_PASSWORD){
+            isAdminLoggedIn = true; document.getElementById('adminError').style.display='none'; checkAdminAuth();
+          } else document.getElementById('adminError').style.display='block';
+        });
+        document.getElementById('adminLogoutBtn').addEventListener('click', ()=>{ isAdminLoggedIn=false; checkAdminAuth(); });
+        function checkAdminAuth(){
+          let loginCard = document.getElementById('adminLoginCard'), dashboard = document.getElementById('adminDashboard');
+          if(isAdminLoggedIn){ loginCard.style.display='none'; dashboard.classList.add('visible'); renderAdminModList(); }
+          else { loginCard.style.display='block'; dashboard.classList.remove('visible'); }
+        }
+
+        // tab switching, search etc (same logic)
+        const tabs = document.querySelectorAll('.tab-btn, .drawer-nav-item[data-tab]');
+        function switchTab(tab){
+          document.querySelectorAll('.tab-btn').forEach(b=> b.classList.toggle('active-tab', b.dataset.tab===tab));
+          document.querySelectorAll('.drawer-nav-item[data-tab]').forEach(i=> i.classList.toggle('active-nav', i.dataset.tab===tab));
+          document.getElementById('modGrid').style.display = tab==='mods'?'grid':'none';
+          document.getElementById('checkerSection').classList.toggle('visible', tab==='checker');
+          document.getElementById('infoSection').classList.toggle('visible', tab==='info');
+          document.getElementById('adminSection').classList.toggle('visible', tab==='admin');
+          if(tab==='admin') checkAdminAuth();
+          closeDrawer();
+        }
+        document.querySelectorAll('.tab-btn').forEach(b=> b.addEventListener('click', ()=> switchTab(b.dataset.tab)));
+        document.querySelectorAll('.drawer-nav-item[data-tab]').forEach(i=> i.addEventListener('click', ()=> switchTab(i.dataset.tab)));
+
+        // hamburger
+        const hamburger = document.getElementById('hamburgerBtn'), drawer = document.getElementById('drawer'), overlay = document.getElementById('drawerOverlay');
+        function openDrawer(){ drawer.classList.add('open'); overlay.classList.add('open'); hamburger.classList.add('active'); }
+        function closeDrawer(){ drawer.classList.remove('open'); overlay.classList.remove('open'); hamburger.classList.remove('active'); }
+        hamburger.addEventListener('click', ()=> drawer.classList.contains('open') ? closeDrawer() : openDrawer());
+        overlay.addEventListener('click', closeDrawer);
+        document.getElementById('quickAdminBtn').addEventListener('click', ()=> switchTab('admin'));
+
+        // search
+        document.getElementById('searchInput').addEventListener('input', (e)=>{
+          let q = e.target.value.toLowerCase();
+          renderMods(files.filter(f=> f.name.toLowerCase().includes(q) || f.desc.toLowerCase().includes(q)));
+        });
+
+        // particles (original, keep)
+        const canvas = document.getElementById('particleCanvas'), ctx = canvas.getContext('2d');
+        let W, H, particles=[];
+        function resizeCanvas(){ W=window.innerWidth; H=window.innerHeight; canvas.width=W; canvas.height=H; initParticles(); }
+        function Particle(){ this.x=Math.random()*W; this.y=Math.random()*H; this.r=Math.random()*2+0.8; this.dx=(Math.random()-0.5)*0.3; this.dy=(Math.random()-0.5)*0.3; this.color='#3980fa'; this.alpha=Math.random()*0.3+0.1; }
+        Particle.prototype.update=function(){ this.x+=this.dx; this.y+=this.dy; if(this.x<0||this.x>W)this.dx*=-1; if(this.y<0||this.y>H)this.dy*=-1; };
+        Particle.prototype.draw=function(){ ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,2*Math.PI); ctx.fillStyle=this.color; ctx.globalAlpha=this.alpha; ctx.fill(); };
+        function initParticles(){ particles=[]; for(let i=0;i<80;i++) particles.push(new Particle()); }
+        function animate(){ ctx.clearRect(0,0,W,H); particles.forEach(p=>{ p.update(); p.draw(); }); requestAnimationFrame(animate); }
+        window.addEventListener('resize', resizeCanvas); resizeCanvas(); animate();
+
+        loadModsFromFirebase();
+      }
+    })();
+  </script>
+</body>
+</html>      cursor: pointer;
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 8px;
+      transition: 0.25s ease;
+    }
+    .hamburger:hover { border-color: var(--accent-primary); background: rgba(57,128,250,0.06); }
+    .hamburger .bar {
+      width: 22px; height: 2px;
+      background: var(--accent-primary);
+      border-radius: 2px;
+      transition: 0.35s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .topbar-brand {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .topbar-scorpion {
+      font-size: 1.7rem;
+      filter: drop-shadow(0 0 6px var(--accent-primary));
+    }
+    .topbar-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      color: var(--text-primary);
+    }
+    .topbar-badge {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border: 1px solid var(--accent-tertiary);
+      border-radius: 30px;
+      color: var(--accent-primary);
+      background: rgba(57,128,250,0.05);
+    }
+
+    .admin-btn {
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      color: var(--accent-primary);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+      margin-left: 8px;
+    }
+    .admin-btn:hover {
+      border-color: var(--accent-primary);
+      background: rgba(57,128,250,0.08);
+      color: var(--text-primary);
+    }
+
+    /* drawer — deeper & sharp */
+    .drawer-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 200;
+      opacity: 0; visibility: hidden;
+      transition: 0.3s ease;
+      backdrop-filter: blur(3px);
+    }
+    .drawer-overlay.open { opacity: 1; visibility: visible; }
+
+    .drawer {
+      position: fixed; top: 0; left: 0;
+      width: 320px; max-width: 85vw;
+      height: 100vh;
+      z-index: 300;
+      background: linear-gradient(145deg, var(--depth-800), var(--depth-900));
+      border-right: 1px solid var(--border-subtle);
+      box-shadow: 15px 0 50px -20px black;
+      transform: translateX(-100%);
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex; flex-direction: column;
+    }
+    .drawer.open { transform: translateX(0); }
+
+    .drawer-header {
+      padding: 28px 20px 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(57,128,250,0.08);
+    }
+    .drawer-logo {
+      width: 80px; height: 80px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--depth-600), var(--accent-secondary));
+      display: flex; align-items: center; justify-content: center;
       font-size: 2.4rem;
       box-shadow: 0 0 0 3px rgba(57,128,250,0.15);
     }
